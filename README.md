@@ -4,7 +4,7 @@
 ![Architecture](https://img.shields.io/badge/Architecture-Physics--Informed%20BiLSTM-1785fb)
 ![Language](https://img.shields.io/badge/Language-Python%203.10-blueviolet)
 
-Hi, welcome to our manuscript repository!
+Manuscript repository!
 
 <h1 align="center">
 Indoor PM2.5 Prediction Using a Mass Balance-Informed Deep Learning Framework
