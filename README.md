@@ -1,104 +1,94 @@
-Hi, welcome to our manuscript repository
-<h1 align = "center" >
-Quantitative Reasoning Evaluation of Large Language Model Performances in Indoor Air Quality Engineering
+Hi, welcome to our manuscript repository!
+
+<h1 align="center">
+Indoor PM2.5 Prediction Using a Mass Balance-Informed Deep Learning Framework
 </h1>
+
 <div align="center" style="font-size: 14px;">
-Nhan Dinh Ngo<sup>a,b,*</sup>, Aijia Zhou<sup>b</sup>, Khang Nguyen Duy Lam<sup>a</sup>, Andrew W. Taylor-Robinson<sup>c,d</sup>, Kok-Seng Wong<sup>a,e</sup>, Thanh H. Nguyen<sup>b</sup>
+[cite_start]Lam Khang Nguyen Duy<sup>a</sup>, Minh Nguyen Tran Nhat<sup>a,c</sup>, Thanh H. Nguyen<sup>b</sup>, Dung D. Le<sup>c</sup>, Phong Thai Khanh<sup>d</sup>, Hung Hai Pham<sup>e</sup>, Nhan Dinh Ngo<sup>a,b,*</sup>, Vishal Verma<sup>b</sup> [cite: 2]
 </div>
 <br>
 
-<sup>a</sup>VinUni-Illinois Smart Health Center, VinUniversity, Hanoi 100000, Vietnam
-<br>
-<sup>b</sup>Department of Civil & Environmental Engineering, University of Illinois at Urbana−Champaign, Urbana, IL 61801, United States
-<br>
-<sup>c</sup>College of Health Sciences, VinUniversity, Hanoi 100000, Vietnam
-<br>
-<sup>d</sup>Center for Global Health, Perelman School of Medicine, University of Pennsylvania, Philadelphia, PA 19104, USA
-<br>
-<sup>e</sup>College of Engineering and Computer Science, VinUniversity, Hanoi 100000, Vietnam
-<br>
+[cite_start]<sup>a</sup>VinUni-Illinois Smart Health Center, VinUniversity, Hanoi 100000, Vietnam [cite: 3]<br>
+[cite_start]<sup>b</sup>Department of Civil & Environmental Engineering, University of Illinois at Urbana-Champaign, Urbana, IL 61801, USA [cite: 4]<br>
+[cite_start]<sup>c</sup>College of Engineering and Computer Science, VinUniversity, Hanoi 100000, Vietnam [cite: 5]<br>
+[cite_start]<sup>d</sup>Queensland Alliance for Environmental Health Sciences (QAEHS), The University of Queensland, Brisbane, Queensland, Australia [cite: 6]<br>
+[cite_start]<sup>e</sup>Center for Environmental Intelligence, VinUniversity, Hanoi 100000, Vietnam [cite: 7]<br>
+
 # 1. Introduction
-This repository contains source codes and detailed instructions for successfully reproducing our manuscript.
-# 2. Requirements for successfully re-implementing our mansucript
-- Create an OpenRouter API to access LLMs
-  1) Login to OpenRouter: https://openrouter.ai/
-  2) Create an API by following these steps: **Settings / API Key / Create API Key**
-  3) Note: Some LLMs are **free-of-charge, but some are not**. Therefore, to prevent the sudden interuption during LLM runnig, we encourage to pay for API service.
-- Several LLMs take hours to complete generate solution for the entire 480 problems. Therefore, we encourage you to use Pro+ version of Google Colab platform.
-- Create a Google Drive folder to store LLMs outputs
-- Alternative, other platforms can be used to run LLMs on local machine but this will be memory-consuming.
-- Format your quantitative dataset to **.CSV (Please use our dataset template)**.
-# 3. Step-by-Step Re-implementation
-## 3.1 Obtain OpenRouter LLM addresses from the OpenRouter portal
-- Login to OpenRouter: https://openrouter.ai/
-- Search for model name. For example, *GPT-4.1, Claude 3.7 Sonnet, Gemini 2.5 Pro, ERNIE-4.5-300B-A47B, Mistral Large 2, Llama 4 Scout, DeepSeek-R1-0528*, and *Grok 3*
-- Copy model address. It should be right below the model name. For example, *openai/gpt-4.1*
-## 3.2 User Initialization
+[cite_start]This repository contains the source codes and detailed instructions for successfully reproducing the results of our manuscript[cite: 388]. [cite_start]We propose a mass balance-informed deep learning framework (incorporating Bidirectional LSTM) for predicting indoor PM2.5 concentrations under both normal and extreme indoor air quality (IAQ) conditions[cite: 67, 140]. 
 
-```python
-# USER INPUT
-user_output_folder= "[Paste your Google Drive folder for storing LLMs output here" // For example: "/content/drive/MyDrive/LLM_Nhan/GPT-41_Outputs"
-user_base_url="https://openrouter.ai/api/v1"
-user_api_key="[Paste your OpenRouter API here]"
 
-user_model = "[Paste LLMs OpenRouter address here]". For example, "openai/gpt-4.1"
-user_filename_id = "[Name the model here]". For example, "gpt-4.1"
-user_max_token = 16384
 
-print("Done")
+[cite_start]A novel feature of our methodology is the introduction of a "RESET" mechanism, designed to reduce error propagation during extended recursive algorithmic predictions[cite: 69, 220].
 
+# 2. Requirements for Re-implementation
+To successfully execute the models, please ensure your environment meets the following specifications utilized in our study:
+- [cite_start]**Programming Language**: Python (version 3.10)[cite: 380].
+- [cite_start]**Deep Learning Framework**: PyTorch framework with CUDA 13.0 acceleration (version 2.10.0+cu130)[cite: 380].
+- [cite_start]**Hardware**: We recommend a workstation equipped with an NVIDIA GPU (e.g., NVIDIA H100 80GB HBM3 or equivalent) to handle the model training efficiently[cite: 387]. 
+- **Required Libraries**: `pandas`, `numpy`, `scikit-learn`, `torch`.
+
+# 3. Data Preparation
+Your quantitative datasets must be formatted as `.CSV` files and placed inside a folder named `PINN_DATA` in the root directory.
+Ensure you have the following files prepared as referenced in the code:
+- `TRAIN_DATA.csv`
+- `NOR.csv`
+- `EXT1.csv`
+- `EXT2.csv`
+- `EXT3.csv`
+
+**Data Structure**:
+[cite_start]The CSV files must contain a `Datetime` column and the following parameters[cite: 129, 131]:
+- **Outdoor Parameters**: `OD_PM25`, `OD_PM10`, `OD_PM1`, `OD_TEMP`, `OD_RH`
+- **Indoor Parameters**: `ID_TEMP`, `ID_RH`, `ID_CO2`
+- **Target Parameter**: `ID_PM25`
+
+# 4. Step-by-Step Re-implementation
+
+The repository is structured using an Object-Oriented Programming (OOP) methodology. Core logic is modularized into files like `model_design_layer.py` and `loss_function.py`. 
+
+## 4.1 Running the Pure Data-Driven Model
+To evaluate the baseline (purely data-driven BiLSTM without mass balance constraints), execute the following command:
+
+```bash
+python main_BiLSTM_Pure.py 1
 ```
-**Notes**:
-- user_base_url="https://openrouter.ai/api/v1" might be changed by Openrouter overtime. To get the latest URL. Please refer to "base_url" field from this OpenRouter link: 
-  https://openrouter.ai/docs/quickstart#using-the-openrouter-api-directly 
-## 3.3 Upload dataset
+[cite_start]*(Note: `1` represents the `run_id`, which sets the random seed for reproducibility[cite: 384]. You can change this integer to test different seeds).*
 
-```python
-# Initialize the solver
-solver = initialize_solver()
+## 4.2 Running the Mass Balance-Informed Model
+[cite_start]To train and evaluate the physics-informed model incorporating the discretized mass balance equation[cite: 151, 157]:
 
-# Load CSV data
-df, total_problems = load_data(solver)
+```bash
+python main_BiLSTM_MB.py 1
 ```
-## 3.4 Run the model
-```python
-# Run the model
-run_model(
-    solver,
-    df,
-    batchsize=5,                  // This is the number of replications, in this study, we set it to 5.
-    answermode = "NSD",           // Type "NSD" for NSD prompt; and "IAQ" for IAQ-prompt
-    maxproblems = total_problems,
-    displays = False,             // "True" if you want model to show solutions within Colab interface; "False" otherwise
-    saves = True                  // "True" if you want to save LLMs outputs, "No" otherwise.
-)
+
+## 4.3 Running the Cross-Extreme Fine-Tuned Models
+[cite_start]To evaluate the model's ability to generalize across diverse high-concentration scenarios, we implemented a cross fine-tuning step[cite: 117, 120]. You can run models fine-tuned on specific extreme datasets:
+
+```bash
+# Fine-tune on Extreme Scenario 1, test on 2 & 3
+python main_BiLSTM_MB_CrossEXT1.py 1
+
+# Fine-tune on Extreme Scenario 2, test on 1 & 3
+python main_BiLSTM_MB_CrossEXT2.py 1
+
+# Fine-tune on Extreme Scenario 3, test on 1 & 2
+python main_BiLSTM_MB_CrossEXT3.py 1
 ```
-- When the running is done. You will see a message **"Done processing all problems"**
-  ```python
-  ....
-  ....
-  Markdown file saved successfully: /content/drive/MyDrive/LLM_Nhan/IAQ_DeepSeek_R1_0528_Outputs/Name: Example 1452-IAQ-deepseek-r1-5.md
-  Successfully saved file Name: Example 1452-IAQ-deepseek-r1-5 to folder /content/drive/MyDrive/LLM_Nhan/IAQ_DeepSeek_R1_0528_Outputs
-  Done processing all problems
-  ```
-## 3.5 LLM response visualization
-- Download all LLM reponse stored on your Google Drive to local computer.
-- Since the reponse format is Markdown. So, you can use any Markdown compiler to read the solution.
-- In this study, we used Visual Studio Code and we installed a Markdown extension to view the LLMs responses.
-# 5. Troubleshootings
-- If a LLM successfully generate a solution for a problem. It will show the below message, for example:
-  ```python
-  Generating response for Name: Example 1312-NSD-gpt-4.1-5...
-  Markdown file saved successfully: /content/drive/MyDrive/LLM_Nhan/GPT-41_Outputs/Name: Example 1312-NSD-gpt-4.1-5.md
-  Successfully saved file Name: Example 1312-NSD-gpt-4.1-5 to folder /content/drive/MyDrive/LLM_Nhan/GPT-41_Outputs
-  ```
-- However, a LLM will sometimes fails to generate solutions. In that bad situation, you will see the message, for example: 
-  ```python
-  Generating response for Name: Example 1152-IAQ-deepseek-r1-2...
-  Failed to generate response for Name: Example 1152-IAQ-deepseek-r1-2
-  Generating response for Name: Example 1211-IAQ-deepseek-r1-2...
-  ```
-- In this case, one thing you should do is that you should note the index of the problem, for example "Example 1152", and re-run it then.
-# 6. Conlusions 
-- We designed the code using Object Oriented Programming (OOP) methodology. This helps to well organize the code and minimizing the human effort to reproduce our work.
-- Therefore, user can look into the coding blocks in source file for reference, but should not change any thing inside those blocks, except for aforementioned blocks here.
+
+# 5. Output and Visualization
+Once the runs are complete, the scripts will automatically generate directories to store your outputs:
+- **`PINN_BEST_MODEL_sustain_check/run_<id>/`**: Stores the trained `.pth` model weights.
+- **`PINN_RESULT_sustain_check/run_<id>/`**: Stores the evaluation `.csv` files and scatter/line plots comparing actual vs. predicted values for both Physical Sensor and Virtual Sensor (Algorithmic) modes.
+
+[cite_start]*Note: For further statistical analysis and custom plotting, you may utilize software such as OriginLab Pro 2024b, which was used for data visualization in our study[cite: 377].*
+
+# 6. Troubleshooting
+- **CUDA Out of Memory**: If you run into memory issues during the `create_3d_tensor` steps, try reducing the `batch_size` or clearing your GPU cache. The code includes a `clear_GPU_memory()` function that runs automatically, but local environments may vary.
+- **Missing File Errors**: Ensure all 5 `.csv` data files are strictly named and located within the `PINN_DATA` directory.
+- [cite_start]**Overfitting**: Early stopping based on validation loss is applied to prevent overfitting[cite: 385]. If you customize the `TRAINING_EPOCHS`, monitor the output logs carefully.
+
+# 7. Conclusions
+[cite_start]By embedding physical mass balance constraints and a periodic RESET mechanism into the BiLSTM framework, this approach successfully limits recursive error propagation and allows the model to maintain sensitivity to temporal variability under extreme indoor pollution levels[cite: 647, 779].
+```
