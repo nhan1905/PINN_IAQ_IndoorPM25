@@ -3,7 +3,9 @@ Hi, welcome to our manuscript repository!
 <h1 align="center">
 Indoor PM2.5 Prediction Using a Mass Balance-Informed Deep Learning Framework
 </h1>
+<div align="center">
 
+</div>
 <div align="center" style="font-size: 14px;">
 Lam Khang Nguyen Duy*<sup>a</sup>, Minh Nguyen Tran Nhat*<sup>a,c</sup>, Thanh H. Nguyen<sup>b</sup>, Dung D. Le<sup>c</sup>, Phong Thai Khanh<sup>d</sup>, Hung Hai Pham<sup>e</sup>, Nhan Dinh Ngo<sup>a,b,*</sup>, Vishal Verma<sup>b</sup> [cite: 2]
 </div>
@@ -14,6 +16,12 @@ Lam Khang Nguyen Duy*<sup>a</sup>, Minh Nguyen Tran Nhat*<sup>a,c</sup>, Thanh H
 [cite_start]<sup>c</sup>College of Engineering and Computer Science, VinUniversity, Hanoi 100000, Vietnam [cite: 5]<br>
 [cite_start]<sup>d</sup>Queensland Alliance for Environmental Health Sciences (QAEHS), The University of Queensland, Brisbane, Queensland, Australia [cite: 6]<br>
 [cite_start]<sup>e</sup>Center for Environmental Intelligence, VinUniversity, Hanoi 100000, Vietnam [cite: 7]<br>
+  
+![Task](https://img.shields.io/badge/Task-Indoor%20PM2.5%20Prediction-e9573f)
+![Domain](https://img.shields.io/badge/Domain-Indoor%20Air%20Quality-00c853)
+![Framework](https://img.shields.io/badge/Framework-PyTorch-ee4c2c)
+![Architecture](https://img.shields.io/badge/Architecture-Physics--Informed%20BiLSTM-1785fb)
+![Language](https://img.shields.io/badge/Language-Python%203.10-blueviolet)
 
 # 1. Introduction
 [cite_start]This repository contains the source codes and detailed instructions for successfully reproducing the results of our manuscript[cite: 388]. [cite_start]We propose a mass balance-informed deep learning framework (incorporating Bidirectional LSTM) for predicting indoor PM2.5 concentrations under both normal and extreme indoor air quality (IAQ) conditions[cite: 67, 140]. 
