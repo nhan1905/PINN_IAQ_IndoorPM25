@@ -13,7 +13,7 @@ Indoor PM2.5 Prediction Using a Mass Balance-Informed Deep Learning Framework
 
 </div>
 <div align="center" style="font-size: 14px;">
-Lam Khang Nguyen Duy<sup>a,</sup>^, Minh Nguyen Tran Nhat<sup>a,c,</sup>^, Thanh H. Nguyen<sup>b</sup>, Dung D. Le<sup>c</sup>, Phong Thai Khanh<sup>d</sup>, Hung Hai Pham<sup>e</sup>, Nhan Dinh Ngo*<sup>a,b,*</sup>, Vishal Verma<sup>b</sup> [cite: 2]
+Lam Khang Nguyen Duy<sup>a,</sup>^, Minh Nguyen Tran Nhat<sup>a,c,</sup>^, Thanh H. Nguyen<sup>b</sup>, Dung D. Le<sup>c</sup>, Phong Thai Khanh<sup>d</sup>, Hung Hai Pham<sup>e</sup>, Nhan Dinh Ngo<sup>a,b,</sup>*, Vishal Verma<sup>b,</sup>* [cite: 2]
 </div>
 <br>
 
