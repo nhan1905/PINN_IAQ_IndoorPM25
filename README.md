@@ -28,6 +28,14 @@ Lam Khang Nguyen Duy<sup>a,</sup>^, Minh T.N Nguyen<sup>a,c,</sup>^, Thanh H. Ng
 </div>
 <br>
 
+</div>
+<div align="center" style="font-size: 14px;">
+**Abstract**
+</div>
+<br>
+
+Monitoring of indoor PM2.5 is vital for effective indoor air quality (IAQ) management and public health control. However, reference-grade monitors are costly, and low-cost sensors (LCS) often require frequent re-calibration. This study aims to develop a mass balance-informed framework that indirectly predicts indoor PM2.5 mass concentrations using multiple environmental parameters. We proposed a novel mass balance-informed Bidirectional Long Short-Term Memory (MB-informed BiLSTM) model. To overcome error propagation in multi-step predicting, we introduced a novel RESET mechanism that periodically reinitializes predictions with observed data. This framework was validated across normal and extreme indoor air pollution scenarios. Our results demonstrate that the MB-informed BiLSTM framework equipped with the RESET feature maintained high predictive accuracy (R2 ≃ 0.99) even under extremely-polluted conditions. Our approach has significant implications for smart building systems, such as Digital Twin platforms, by enabling a cost-effective and reliable solution for indoor PM2.5 monitoring. Furthermore, it supports “duty-cycling” strategies to extend low-cost sensor longevity, thereby enabling proactive, health-protective interventions by more accurate forecasting of the indoor pollutants.
+
 # 1. Introduction
 This repository contains the source codes and detailed instructions for successfully reproducing the results of our manuscript. We propose a mass balance-informed deep learning framework (incorporating Bidirectional LSTM) for predicting indoor PM2.5 concentrations under both normal and extreme indoor air quality (IAQ) conditions. 
 
