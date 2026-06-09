@@ -12,7 +12,7 @@ Indoor PM2.5 Prediction Using a Mass Balance-Informed Deep Learning Framework
 
 </div>
 <div align="center" style="font-size: 14px;">
-Lam Khang Nguyen Duy<sup>a,</sup>^, Minh T.N Nguyen<sup>a,c,</sup>^, Thanh H. Nguyen<sup>b</sup>, Dung D. Le<sup>c</sup>, Phong Thai Khanh<sup>d</sup>, Hung Hai Pham<sup>e</sup>, Nhan Dinh Ngo<sup>a,b,</sup>*, Vishal Verma<sup>b,</sup>
+Lam Khang Nguyen Duy<sup>a,</sup>^, Minh T.N Nguyen<sup>a,c,</sup>^, Thanh H. Nguyen<sup>b</sup>, Dung D. Le<sup>c</sup>, Phong K. Thai<sup>d</sup>, Hung Hai Pham<sup>e</sup>, Vishal Verma<sup>b,</sup>, Nhan Dinh Ngo<sup>a,b,</sup>*
 </div>
 <br>
 
@@ -21,7 +21,12 @@ Lam Khang Nguyen Duy<sup>a,</sup>^, Minh T.N Nguyen<sup>a,c,</sup>^, Thanh H. Ng
 <sup>c</sup>College of Engineering and Computer Science, VinUniversity, Hanoi 100000, Vietnam <br>
 <sup>d</sup>Queensland Alliance for Environmental Health Sciences (QAEHS), The University of Queensland, Brisbane, Queensland, Australia <br>
 <sup>e</sup>Center for Environmental Intelligence, VinUniversity, Hanoi 100000, Vietnam <br>
-  
+
+</div>
+<div align="center" style="font-size: 14px;">
+**Graphic Abstract**
+</div>
+<br>
 
 # 1. Introduction
 This repository contains the source codes and detailed instructions for successfully reproducing the results of our manuscript. We propose a mass balance-informed deep learning framework (incorporating Bidirectional LSTM) for predicting indoor PM2.5 concentrations under both normal and extreme indoor air quality (IAQ) conditions. 
