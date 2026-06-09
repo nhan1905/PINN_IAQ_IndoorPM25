@@ -32,7 +32,7 @@ Lam Khang Nguyen Duy<sup>a,</sup>^, Minh T.N Nguyen<sup>a,c,</sup>^, Thanh H. Ng
 <br>
 
 <p align="center">
-  <img src="[https://raw.githubusercontent.com/nhan1905/PINN_IAQ_IndoorPM25/main/Graphic%20Abstract/Graphic%20Abstract.png](https://github.com/nhan1905/PINN_IAQ_IndoorPM25/blob/main/Graphic%20Abstract/Graphic%20Abstract.png)" alt="Graphic Abstract" width="850">
+  <img src="Graphic Abstract/Graphic Abstract.png" alt="Graphic Abstract" width="850">
 </p>
 
 <br>
