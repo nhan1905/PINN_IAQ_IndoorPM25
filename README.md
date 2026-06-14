@@ -68,17 +68,17 @@ Your quantitative datasets must be formatted as `.csv` files and placed inside a
 
 Ensure you have the following files prepared as referenced in the code:
 
-- `TRAIN_DATA.csv`
-- `NOR.csv`
-- `EXT1.csv`
-- `EXT2.csv`
-- `EXT3.csv`
+- `TRAIN_DATA_TEMPLATE.csv`
+- `NOR_TEMPLATE.csv`
+- `EXT1_TEMPLATE.csv`
+- `EXT2_TEMPLATE.csv`
+- `EXT3_TEMPLATE.csv`
 
 **Data Structure**:
 
 The CSV files must contain a `Datetime` column and the following parameters:
 
-- **Outdoor Parameters**: `OD_PM25`, `OD_PM10`, `OD_PM1`, `OD_TEMP`, `OD_RH`
+- **Outdoor Parameters**: `OD_PM25`, `OD_PM10`, `OD_TEMP`, `OD_RH`
 - **Indoor Parameters**: `ID_TEMP`, `ID_RH`, `ID_CO2`
 - **Target Parameter**: `ID_PM25`
 
@@ -91,40 +91,23 @@ The repository is structured using an Object-Oriented Programming (OOP) methodol
 To evaluate the baseline model, namely the purely data-driven BiLSTM without mass balance constraints, execute the following command:
 
 ```bash
-python main_BiLSTM_Pure.py 1
+python main_BiLSTM_Pure.py
 ````
-
-Here, `1` represents the `run_id`, which sets the random seed for reproducibility. You can change this integer to test different seeds.
 
 ## 4.2 Running the Mass Balance-Informed Model
 
 To train and evaluate the physics-informed model incorporating the discretized mass balance equation, execute:
 
 ```bash
-python main_BiLSTM_MB.py 1
-```
-
-## 4.3 Running the Cross-Extreme Fine-Tuned Models
-
-To evaluate the model's ability to generalize across diverse high-concentration scenarios, we implemented a cross fine-tuning step. You can run models fine-tuned on specific extreme datasets as follows:
-
-```bash
-# Fine-tune on Extreme Scenario 1, then test on Extreme Scenarios 2 and 3
-python main_BiLSTM_MB_CrossEXT1.py 1
-
-# Fine-tune on Extreme Scenario 2, then test on Extreme Scenarios 1 and 3
-python main_BiLSTM_MB_CrossEXT2.py 1
-
-# Fine-tune on Extreme Scenario 3, then test on Extreme Scenarios 1 and 2
-python main_BiLSTM_MB_CrossEXT3.py 1
+python main_BiLSTM_MB.py
 ```
 
 # 5. Output and Visualization
 
 Once the runs are complete, the scripts will automatically generate directories to store your outputs:
 
-* **`PINN_BEST_MODEL_sustain_check/run_<id>/`**: Stores the trained `.pth` model weights.
-* **`PINN_RESULT_sustain_check/run_<id>/`**: Stores the evaluation `.csv` files and scatter/line plots comparing actual and predicted values for both Physical Sensor and Virtual Sensor, or Algorithmic, modes.
+* **`PINN_BEST_MODEL`**: Stores the trained `.pth` model weights.
+* **`PINN_RESULT`**: Stores the evaluation `.csv` files and scatter/line plots comparing actual and predicted values for both Physical Sensor and Virtual Sensor, or Algorithmic, modes.
 
 For further statistical analysis and custom plotting, you may utilize software such as OriginLab Pro 2024b, which was used for data visualization in our study.
 
