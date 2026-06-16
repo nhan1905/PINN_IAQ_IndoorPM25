@@ -86,11 +86,11 @@ To execute the models, ensure that the environment includes the following compon
 
 Place the runtime datasets inside a folder named `PINN_DATA` in the repository root. The main scripts expect the following file names:
 
-- `PINN_DATA/TRAIN_DATA_5min.csv`
-- `PINN_DATA/NOR_5min.csv`
-- `PINN_DATA/EXT1_5min.csv`
-- `PINN_DATA/EXT2_5min.csv`
-- `PINN_DATA/EXT3_5min.csv`
+- `PINN_DATA/TRAIN_DATA.csv`
+- `PINN_DATA/NOR.csv`
+- `PINN_DATA/EXT1.csv`
+- `PINN_DATA/EXT2.csv`
+- `PINN_DATA/EXT3.csv`
 
 The provided template files define the required schema. Populate each template with the corresponding measurements and save or rename it using the runtime file name listed above.
 
@@ -102,7 +102,7 @@ Each CSV file must contain a `Datetime` column and the following variables:
 - **Indoor auxiliary parameters**: `ID_TEMP`, `ID_RH`, `ID_CO2`
 - **Prediction target**: `ID_PM25`
 
-The current implementation assumes five-minute data because the mass-balance time step is fixed at `dt = 5/60` h.
+The current implementation assumes five-minute data because the mass-balance time step is fixed at `dt = 1/60` h.
 
 # 5. Step-by-Step Re-implementation
 
