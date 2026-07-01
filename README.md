@@ -26,18 +26,6 @@ Lam Khang Nguyen Duy<sup>a,</sup>^, Minh T.N Nguyen<sup>a,c,</sup>^, Thanh H. Ng
 <br>
 
 <div align="center" style="font-size: 14px;">
-<strong>Graphic Abstract</strong>
-</div>
-
-<br>
-
-<p align="center">
-  <img src="Graphic Abstract/Graphic Abstract.png" alt="Graphic Abstract" width="850">
-</p>
-
-<br>
-
-<div align="center" style="font-size: 14px;">
 <strong>Abstract</strong>
 </div>
 
